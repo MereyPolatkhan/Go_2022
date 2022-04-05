@@ -13,8 +13,9 @@ func check(err error) {
 }
 
 func main() {
-	tmpl := template.New("test")
+	tmpl, err := template.New("test").Parse("hello world")
+	check(err)
 
-	err := tmpl.Execute(os.Stdout, nil)
+	err = tmpl.Execute(os.Stdout, nil)
 	check(err)
 }
